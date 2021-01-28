@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/header.ejs')%>
+
+<body>
+    <%- include('./partials/navbar.ejs')%>
+    <div class="container">
+        <h1>Welcome to my blog</h1>
+
+        <select class="form-control" id="selectYear">
+            <option value="All">All year</option>
+
+           
+
+           <% year.forEach(element => { %>
+            <option value="<%= element %>"><%= element %></option>
+           <% }) %>
+        </select>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Title</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+               <% for( let index = 0; index < post.length; index++ ) { %>
+               <tr>
+                   <td><%= index+1 %> </td>
+                   <td> <%= post[index].title %> </td>
+                   <td> <%= post[index].detail %> </td>
+                   <td> <%= post[index].year %> </td>
+               </tr>
+               <% } %>
+            </tbody>
+        </table>
+        <%- include('./partials/footer.ejs')%>
+
+    </div>
+</body>
+</html>
