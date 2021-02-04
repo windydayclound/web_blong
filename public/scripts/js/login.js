@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $("#btnSingIn").click(function () { 
-
+    $("#formLogin").submit(function (e) { 
+        e.preventDefault();
     const username = $("#txtUsername").val();
     const password = $("#txtPassword").val();
 

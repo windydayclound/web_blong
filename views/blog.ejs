@@ -6,22 +6,31 @@
     <%- include('./partials/navbar.ejs')%>
     <div class="container">
         <h1>Welcome to my blog</h1>
+        <div class="row">
+            <div class="col-10">
+    <select class="form-control" id="selectYear">
+                <option value="All">All year</option>
 
-        <select class="form-control" id="selectYear">
-            <option value="All">All year</option>
+            <% year.forEach(element => { %>
+                <option value="<%= element %>"><%= element %></option>
+            <% }) %>
+            </select>
+            </div>
+            <div class="col-2">
+         <button id="btnAdd" type="button" class="btn btn-success">Add</button>
+            </div>
 
-           
-
-           <% year.forEach(element => { %>
-            <option value="<%= element %>"><%= element %></option>
-           <% }) %>
-        </select>
+        </div>
+        
+        
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>No.</th>
                     <th>Title</th>
                     <th>Detail</th>
+                    <th>Year</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +40,10 @@
                    <td> <%= post[index].title %> </td>
                    <td> <%= post[index].detail %> </td>
                    <td> <%= post[index].year %> </td>
+                   <td>
+                       <button type="button" class="btn btn-danger btnDelete">Delete</button>
+                       <button type="button" class="btn btn-warning btnEdit">Edit</button>
+                   </td>
                </tr>
                <% } %>
             </tbody>

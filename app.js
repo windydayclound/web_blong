@@ -53,7 +53,8 @@ app.get('/singIn',(req,res)=>{
 
 // 404, must be the last service
 app.use((req, res) => {
-    res.status(404).end();
+    // res.status(404).send("Oops, Page not found !");
+    res.render('404');
 })
 
 // *********** Starting server ***********
